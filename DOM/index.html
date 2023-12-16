@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h3{
+            color:#fff;
+            background-color: blue;
+            text-align: center;
+            font-size: larger;
+            padding:20px 0px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        body{
+            background-color: aliceblue;
+        }
+        main{
+            /* background-color:#fff; */
+            width:600px;
+            margin: 15px auto;
+            min-height: 250px;
+            
+        }
+        .input-food{
+            outline: none;
+            width: 80%;
+            padding:5px;
+            font-size:small;
+            padding-left: 15px;
+        }
+        .input-parent{
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 1px 0px 5px #878585;
+        }
+        button{
+            background-color:#1acbe6;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            
+        }
+        button:hover{
+            background-color:#107f90;
+        }
+        .list{
+            font-size: medium;
+            margin:35px 0px;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 1px 0px 5px #878585;
+
+        }
+        .list h4{
+             margin-bottom: 10px;
+        }
+        .list-items {
+            border:1px solid hsl(0, 3%, 75%);
+            padding:8px;
+            width: 400px;       
+        }
+        #food-container{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+   <header>
+      <h3>😋I would like to eat</h3>
+   </header> 
+   <main>
+      <div class="input-parent">
+        <input type="text" name="input-collect" id="user-input" class="input-food" placeholder="Enter you food">
+        <button id="input-btn" name="input-collect">summit</button>
+      </div>
+
+      <div class="list">
+         <h4>Food list</h4>
+         <ul id="food-container">
+            <li class="list-items">Samber</li>
+            <li class="list-items">Rasam</li>
+            <li class="list-items">Curd</li>
+         </ul>
+      </div>
+
+   </main>
+   <script src="index.js"> </script>
+</body>
+</html>
