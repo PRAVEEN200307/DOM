@@ -61,7 +61,7 @@
             background-color: #fff;
             padding: 10px;
             box-shadow: 1px 0px 5px #878585;
-
+            /* display: none; */
         }
         .list h4{
              margin-bottom: 10px;
@@ -77,6 +77,35 @@
         #food-container{
             list-style: none;
         }
+        .input-name-style{
+            padding:5px 15px;
+            border-radius: 5px;
+            outline: none;
+            border: 2px solid #000;
+        }
+        #input-food-container{
+            background-color: hsl(0, 0%, 100%);
+            padding: 20px;
+            transition: all 0.5s ease;
+            width: 100%;
+            
+        }
+        #hide-btn{
+            background-color: red;
+            padding:3px 20px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            float: right;
+        }
+        .hide{
+            height:0;
+            width: 0;
+            overflow: hidden;
+            line-height: 0;
+            opacity: 0;
+        }
+        
     </style>
 </head>
 <body>
@@ -112,17 +141,16 @@
             </li>
          </ul>
       </div>
-       <div id="input-food-container">
+        <button id="hide-btn">hide</button>
+       <div id="input-food-container" >
             <input type="text" name="fullName" id="user-input" 
             placeholder="Full name" value="Dhinesh" 
-            data-is-alive="Yeah it is attribute value"
-            data-interest="Create a new Thing or Project" 
-            style="background-color:#878585;outline:none;">
+            class="input-name-style">
 
-            <button style="background-color: royalblue;border: none;
-            padding: 2px 15px;color: #fff;border-radius: 2px;cursor: pointer;">
+            <button>
               summit
             </button> 
+            
        </div>
     </main>
    <script src="index.js"> </script>
