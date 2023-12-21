@@ -1,36 +1,79 @@
 
-const userInput =document.querySelector("#input-food-container input");
-
-const inputDiv =document.querySelector('#input-food-container');
-const hideBtn =document.querySelector('#hide-btn');
-// console.log(hideBtn);
-
-//task: show div based on click (toggle)
-
-// hideBtn.addEventListener('click',()=>{
-//     if( inputDiv.style.display ==="none"){
-//        hideBtn.style.backgroundColor="gray";
-//        hideBtn.innerHTML="hide div";
-//        inputDiv.style.display="block";
-//     }
-//     else{
-//         inputDiv.style.display ="none";
-//         hideBtn.style.backgroundColor="royalblue";
-//         hideBtn.innerHTML="show text";
-//     }
-// });
+//inline event  ex attribute
+//inline properties
+//event listeners
 
 
-//animation
-   hideBtn.addEventListener('click',()=>{
-      if(inputDiv.classList.contains('hide')){
-         inputDiv.classList.remove('hide');
-         hideBtn.innerHTML="hide div";
-         hideBtn.style.backgroundColor="gray";
-      }
-      else{
-         inputDiv.classList.add('hide');
-         hideBtn.style.backgroundColor="royalblue";
-         hideBtn.innerHTML="show text";
-      }
-   });
+const spanEL =document.querySelector('header span');
+
+const handleCreditMsg =(event)=>{
+    alert('creadit alert')
+}
+
+spanEL.addEventListener('click',handleCreditMsg,{once:true})
+
+
+//event bubbling
+const form=document.querySelector('form');
+const div=document.querySelector('form div');
+const p=document.querySelector('form div p');
+
+form.addEventListener('click',(event)=>
+{
+  alert('form tag');
+//   console.dir(`target:${event.target.tagName},this:${form.tagName}`);
+});
+
+//-------------------------------
+div.addEventListener('click',(event)=>{
+ alert('div element');
+
+    //Stop Bubbling
+  // event.stopPropagation();
+
+  // Removes all active event listeners 
+  // event.stopImmediatePropagation();
+
+  
+});
+
+p.addEventListener('click',()=>{
+    alert('p element')
+});
+
+//stoppropagation
+
+div.addEventListener('click',(event)=>{
+    alert('this is a another div element');
+   
+});
+
+//22:12
+
+//To catch an event on the capturing phase
+  // form.addEventListener('click',()=>{
+  //   console.log('form capture capturing')
+  // },{capture:true}); //by default false,
+
+  // div.addEventListener('click',()=>{
+  //   console.log('the is a div capture')
+  // },{capture:true});
+
+  
+  // p.addEventListener('click',()=>{
+  //   console.log('this is paragraph capturing')
+  // },{capture:true});
+
+//Task:Catch the capturing & Bubbbling phrase
+
+
+for(let ele of document.querySelectorAll("form,form *")){
+  console.log(ele);
+  ele.addEventListener('click',()=>{
+    console.log(`capture phase ${ele.tagName}`)
+  },{capture:true});
+
+  ele.addEventListener('click',()=>{
+    console.log(`babble phase ${ele.tagName}`);
+  })
+}
