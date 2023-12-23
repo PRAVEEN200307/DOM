@@ -1,65 +1,74 @@
+// mouse event
+
+//mouse in
+//mouse up
+//mouse out
+//mouse hover
 
 
-//38-Event Delegation & Dyanmic Events
-
-const tableEl = document.querySelector('table');
-// console.log(tableEl);
-
-let selectedId;
-
-tableEl.addEventListener('click',(event)=>{
-    const target =event.target
-    const closestTr =target.closest('tr');
-
-
-    if(target.tagName ==='TH') return; //Ignoring TH element.
-
-    if(selectedId != undefined){
-        selectedId.classList.remove('active')
-    }
-     selectedId=closestTr;
-    closestTr.classList.add("active");
-
-   alert(`hello ${closestTr.children[0].textContent}`);
-});
-
-
-//task  1 : Show a donate page based on Toggle
-
-//id="supportBtn"
-
-
-// const supportBtn = document.querySelector('#supportBtn');
-
-// const userInputEL = document.querySelectorAll('#donate-form')[0];
-// const userInput = userInputEL.children[1];
-// const donateBtn = userInputEL.lastElementChild;
-
-// supportBtn.addEventListener('click', () => {
-//     userInputEL.classList.toggle('togglediv');
+// globally
+// document.addEventListener("mousedown",(event)=>{
+//    console.log('mosuedown',event)
 // });
 
-
-// donateBtn.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     alert(`You have donated $${userInput.value}`)
+// document.addEventListener('copy',(event)=>{
+//   event.preventDefault();
+//   alert("Copied is prohibited")
 // });
 
-/**/ 
+// document.addEventListener("mouseup",(event)=>{
+//   console.log('mouseup',event);
+// });
 
-document.addEventListener('click',(event)=>{
-   const id =event.target.dataset.toggleId;
+// mouseenter
+//    when a touch screeen fires
+    // document.addEventListener('mouseenter',(event)=>{
+    // console.log("Mosueenter");
+    // })
 
-   if(!id) return; //ignore all;
-   const el=document.querySelector(`#${id}`);
-   el.hidden=!el.hidden //toggle function
+//mouse over 
+    //when is like a css hover 
+// document.addEventListener('mouseover',(event)=>{
+//     console.log(event);
+// })
+
+//mouseleave
+    // document.addEventListener('mouseleave',()=>{
+    // console.log('MosueLeave');
+    // });
+
+//mousemove
+// document.addEventListener('mousemove',()=>{
+//     console.log('mousemove')
+// })
+
+//mouseout
+    // document.addEventListener('mouseout',()=>{
+    // console.log("mouseout");
+    // });
+
+//task
+   //create an mouse tester app 
+     //which should display respective message when that button is clicked
+ //based on the click 
+ //you have click
+
+document.addEventListener('mouseup',(event)=>{
+  switch(event.which){
+    case 1:
+        console.log("you have clicked left key");
+        break;
+    case 2:
+        console.log("you have clicked middle key");
+        break;
+    default:
+        console.log("you have clicked right key");
+        break;
+  }
 });
 
-const formEL =document.querySelector('#donate-form');
+//which
 
-formEL.addEventListener('submit',(event)=>{
-    const donateAmount =event.target.querySelector('input').value;
-    //getting value dollar simple
-    const spanValue= formEL.children[0].textContent;
-    alert(`Thank you donating ${spanValue} ${donateAmount}`);
-});
+//which=1 --left key
+//which=2 --middle key
+//which=3 --right key
