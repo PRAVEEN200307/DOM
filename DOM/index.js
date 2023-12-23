@@ -29,20 +29,37 @@ tableEl.addEventListener('click',(event)=>{
 //id="supportBtn"
 
 
+// const supportBtn = document.querySelector('#supportBtn');
 
-const supportBtn = document.querySelector('#supportBtn');
+// const userInputEL = document.querySelectorAll('#donate-form')[0];
+// const userInput = userInputEL.children[1];
+// const donateBtn = userInputEL.lastElementChild;
+
+// supportBtn.addEventListener('click', () => {
+//     userInputEL.classList.toggle('togglediv');
+// });
 
 
-const userInputEL = document.querySelectorAll('#donate-form')[0];
-const userInput = userInputEL.children[1];
-const donateBtn = userInputEL.lastElementChild;
+// donateBtn.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     alert(`You have donated $${userInput.value}`)
+// });
 
-supportBtn.addEventListener('click', () => {
-    userInputEL.classList.toggle('togglediv');
+/**/ 
+
+document.addEventListener('click',(event)=>{
+   const id =event.target.dataset.toggleId;
+
+   if(!id) return; //ignore all;
+   const el=document.querySelector(`#${id}`);
+   el.hidden=!el.hidden //toggle function
 });
 
+const formEL =document.querySelector('#donate-form');
 
-donateBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    alert(`You have donated $${userInput.value}`)
+formEL.addEventListener('submit',(event)=>{
+    const donateAmount =event.target.querySelector('input').value;
+    //getting value dollar simple
+    const spanValue= formEL.children[0].textContent;
+    alert(`Thank you donating ${spanValue} ${donateAmount}`);
 });
