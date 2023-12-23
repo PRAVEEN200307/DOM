@@ -1,79 +1,48 @@
 
-//inline event  ex attribute
-//inline properties
-//event listeners
+
+//38-Event Delegation & Dyanmic Events
+
+const tableEl = document.querySelector('table');
+// console.log(tableEl);
+
+let selectedId;
+
+tableEl.addEventListener('click',(event)=>{
+    const target =event.target
+    const closestTr =target.closest('tr');
 
 
-const spanEL =document.querySelector('header span');
+    if(target.tagName ==='TH') return; //Ignoring TH element.
 
-const handleCreditMsg =(event)=>{
-    alert('creadit alert')
-}
+    if(selectedId != undefined){
+        selectedId.classList.remove('active')
+    }
+     selectedId=closestTr;
+    closestTr.classList.add("active");
 
-spanEL.addEventListener('click',handleCreditMsg,{once:true})
-
-
-//event bubbling
-const form=document.querySelector('form');
-const div=document.querySelector('form div');
-const p=document.querySelector('form div p');
-
-form.addEventListener('click',(event)=>
-{
-  alert('form tag');
-//   console.dir(`target:${event.target.tagName},this:${form.tagName}`);
+   alert(`hello ${closestTr.children[0].textContent}`);
 });
 
-//-------------------------------
-div.addEventListener('click',(event)=>{
- alert('div element');
 
-    //Stop Bubbling
-  // event.stopPropagation();
+//task  1 : Show a donate page based on Toggle
 
-  // Removes all active event listeners 
-  // event.stopImmediatePropagation();
+//id="supportBtn"
 
-  
+
+
+const supportBtn = document.querySelector('#supportBtn');
+
+
+const userInputEL = document.querySelectorAll('#donate-form')[0];
+const userInput = userInputEL.children[1];
+const donateBtn = userInputEL.lastElementChild;
+
+supportBtn.addEventListener('click', () => {
+    userInputEL.classList.toggle('togglediv');
 });
 
-p.addEventListener('click',()=>{
-    alert('p element')
+
+donateBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    alert(`You have donated $${userInput.value}`)
 });
-
-//stoppropagation
-
-div.addEventListener('click',(event)=>{
-    alert('this is a another div element');
-   
-});
-
-//22:12
-
-//To catch an event on the capturing phase
-  // form.addEventListener('click',()=>{
-  //   console.log('form capture capturing')
-  // },{capture:true}); //by default false,
-
-  // div.addEventListener('click',()=>{
-  //   console.log('the is a div capture')
-  // },{capture:true});
-
-  
-  // p.addEventListener('click',()=>{
-  //   console.log('this is paragraph capturing')
-  // },{capture:true});
-
-//Task:Catch the capturing & Bubbbling phrase
-
-
-for(let ele of document.querySelectorAll("form,form *")){
-  console.log(ele);
-  ele.addEventListener('click',()=>{
-    console.log(`capture phase ${ele.tagName}`)
-  },{capture:true});
-
-  ele.addEventListener('click',()=>{
-    console.log(`babble phase ${ele.tagName}`);
-  })
-}

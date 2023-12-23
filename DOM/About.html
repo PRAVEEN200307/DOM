@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- icons -->
+     <!-- <link rel="stylesheet" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDcOtisIRQuiUtmvDSfcypxrUd6Cdbj0Tjwn6prmFZoAUypAwu46_mYTp0etF9MYjfD_I&usqp=CAU"> -->
+    <!-- font-aweosme -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         *{
@@ -112,41 +115,112 @@
    <header>
       <h3>😋I would like to eat</h3>
       <a href="About.html" style="font-size:12px;font-weight:100;
-        color:hsl(55, 77%, 50%);">credit
+        color:hsl(55, 77%, 50%);">back
       </a>
    </header> 
    <main>
-      <div class="input-parent">
-        <input type="text" name="input-collect" id="user-input" class="input-food" placeholder="Enter you food">
-        <button id="input-btn" name="input-collect">summit</button>
-      </div>
-
-      <div class="list">
-         <h4>Food list</h4>
-         <ul id="food-container">
-            <li class="list-items">
-                <div>Samber</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-            <li class="list-items">
-                <div>apalam</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-            <li class="list-items">
-                <div>porial</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-         </ul>
-      </div> 
-    </main>
+       <h4>Authors of FoodCook planner</h4>
+        <style>
+            table{
+               border-collapse: collapse; 
+               margin-top:20px;
+            }
+            th{
+                padding: 5px 10px;
+                background-color: hsl(188, 69%, 52%);
+                color: #fff;
+            }
+            td{
+                padding: 5px 10px;
+            }
+            .active{
+                background-color: hwb(180 73% 16%);
+            }
+        </style>   
 
 
+       <table border="1" >
+           <thead>
+              <tr class="active">
+                <th>Name</th>
+                <th>Github</th>
+                <th>Contact Detail</th>
+              </tr>
+           </thead>
+           <tbody >
+             <tr>
+                <td>Praveen</td>
+                <td>https:github.com/PRAVEEN200307</td>
+                <td><a href="#">https://facebook.com/praveen</a></td>
+             </tr>
+             <tr>
+                <td>Govintha</td>
+                <td>https:github.com/Govintha200307</td>
+                <td><a href="#">https://facebook.com/Govintha</a></td>
+             </tr>
+             <tr>
+                <td>Trihsa</td>
+                <td>https:github.com/Trihsa200307</td>
+                <td><a href="#">https://facebook.com/Trihsa</a></td>
+             </tr>
+             <tr>
+                <td>Anbu</td>
+                <td>https:github.com/Anbu200307</td>
+                <td><a href="#">https://facebook.com/Anbu</a></td>
+             </tr>
+           </tbody>
+       </table>
+   </main>
+    
+   <style>
+      .donate{
+        background-color: hwb(0 97% 0%);
+        text-align: center;
+      }
+      .donate *{
+          padding:5px;
+      }
+      .Support-Btn {
+         background-color: blueviolet;
+         border: none;
+         padding: 10px 15px;
+         color: #fff;
+         border-radius: 2px;
+         cursor: pointer;
+      }
+      .donate-btn{
+         background-color: red;
+         padding: 5px 10px;
+         border: none;
+         color: #fff;
+         cursor: pointer;
+      }
+      input[name='donate']{
+         width: 190px;
+         outline: none;
+         border: 2px solid gainsboro;
+         border-radius:2px;
+      }
+       .togglediv{
+        display: none;
+      }
+   </style>
+   <!-- Donate page -->
+    <footer>
+        <div class="donate" >
+          <div>
+            <button class="Support-Btn" id="supportBtn" data-toggle-id="donate-form">
+                Support Authors
+            </button>
+          </div>
+          <div class="togglediv" id="donate-form">
+                    <span>&#8377;</span>
+                    <input type="number" name="donate" min="1" >
+                    <button class="donate-btn" type="submit">Donate</button>
+          </div>
+        </div>
+    </footer>
+     <!-- Donate page -->
    <script src="index.js"> </script>
 </body>
 </html>
