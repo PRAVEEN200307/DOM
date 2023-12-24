@@ -1,74 +1,90 @@
-// mouse event
+/*
+button
+*/
+const btn =document.getElementById('input-btn');
+const userInput =document.getElementById('user-input');
 
-//mouse in
-//mouse up
-//mouse out
-//mouse hover
+let foodContaiener =document.getElementById('food-container');
+// console.log(foodContaiener);
 
+const handleInuptFood =()=>{
+   const li =document.createElement('li');
+   li.className="list-items";
+   
+   const div =document.createElement('div');
 
-// globally
-// document.addEventListener("mousedown",(event)=>{
-//    console.log('mosuedown',event)
-// });
+   if(userInput.value.length<1){
+       return 
+   }
+   else{
+    div.textContent=userInput.value;
+    const div1 =document.createElement('div');
+    div1.innerHTML=`<i class="fa-solid fa-xmark"></i>`;
+    div1.setAttribute('onclick','removeitem(event)')
+   
+    li.append(div,div1);
+    foodContaiener.append(li);
+   }
+}
 
-// document.addEventListener('copy',(event)=>{
-//   event.preventDefault();
-//   alert("Copied is prohibited")
-// });
+btn.addEventListener('click',handleInuptFood);
 
-// document.addEventListener("mouseup",(event)=>{
-//   console.log('mouseup',event);
-// });
-
-// mouseenter
-//    when a touch screeen fires
-    // document.addEventListener('mouseenter',(event)=>{
-    // console.log("Mosueenter");
-    // })
-
-//mouse over 
-    //when is like a css hover 
-// document.addEventListener('mouseover',(event)=>{
-//     console.log(event);
-// })
-
-//mouseleave
-    // document.addEventListener('mouseleave',()=>{
-    // console.log('MosueLeave');
-    // });
-
-//mousemove
-// document.addEventListener('mousemove',()=>{
-//     console.log('mousemove')
-// })
-
-//mouseout
-    // document.addEventListener('mouseout',()=>{
-    // console.log("mouseout");
-    // });
-
-//task
-   //create an mouse tester app 
-     //which should display respective message when that button is clicked
- //based on the click 
- //you have click
-
-document.addEventListener('mouseup',(event)=>{
-  switch(event.which){
-    case 1:
-        console.log("you have clicked left key");
-        break;
-    case 2:
-        console.log("you have clicked middle key");
-        break;
-    default:
-        console.log("you have clicked right key");
-        break;
-  }
+userInput.addEventListener('keyup',(event)=>{
+   if(event.key === "Enter"){
+      handleInuptFood();
+   }else if(event.key === "KeyZ" && (event.ctrlkey="true"||event.metakey))
+   {
+       userInput.value='';
+   }
 });
 
-//which
+                                                                        
+//remove() meathod
+function removeitem(event){
+  const removeLi =event.target.parentNode.parentNode;
+  removeLi.remove();  
+}
 
-//which=1 --left key
-//which=2 --middle key
-//which=3 --right key
+
+
+//keydown
+// document.addEventListener("keydown",(event)=>{
+//   console.log(event.type,event);
+// })
+
+// document.addEventListener("keyup",(event)=>{
+//   //console.log(`${event.type},${event.code},${event.key}`);
+//   console.log(event);
+// });
+
+
+// Task :Build a simple typing-test screen
+/*
+document.addEventListener("keyup",(event)=>{
+   switch(event.key){
+     default:
+      console.log(event.key);
+      break;
+   }
+
+   switch(event.key){
+      case 'ArrowUp':
+         alert(`You have pressed ${event.key}`);
+         break;
+      case 'ArrowDown':
+         alert(`You have pressed ${event.key}`);
+         break;
+      case 'ArrowLeft':
+         alert(`You have pressed ${event.key}`);
+         break;
+      case 'ArrowRight':
+         alert(`You have pressed ${event.key}`);
+         break;
+      default:
+         alert('You have pressed unwanted key')
+   }
+});
+*/
+
+
+
