@@ -82,38 +82,84 @@
 <body>
    <header>
       <h3>😋I would like to eat</h3>
-      <a href="Feedback.html">-> Give Feedback</a>
    </header> 
    <main>
-      <div class="input-parent">
-        <input type="text"  id="user-input" class="input-food" placeholder="Enter you food">
-        <button id="input-btn" name="input-collect">summit</button>
-      </div>
+     <h2 style="text-align:center;">Feedback form</h3>
+     <!-- 
+        feed backform form
+        name
+        type of feedback
+        email address
+        textfield
+        buttton
+     -->
+     <style>
+        form{
+           margin-top: 10px;
+           background-color: #fff; 
+           padding:15px;
+           border-radius: 5px;
+           box-shadow:2px 2px 6px hwb(0 60% 40%);
+           font-size:12px;
+           /* font-weight: bold; */
+           color: hwb(0 51% 48%);
+        }
+        form *{
+            margin:5px;
+        }
+        form button{
+            width: 100%;
+            border-radius:2px;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        textarea
+        {
+            width: 90%;
+            padding:5px 20px;
+            outline: none;
+        }
+        .d-flex{
+           display: flex;
+           align-items: center;
+        }
+     </style>
 
-      <div class="list">
-         <h4>Food list</h4>
-         <ul id="food-container">
-            <li class="list-items">
-                <div>Samber</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-            <li class="list-items">
-                <div>apalam</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-            <li class="list-items">
-                <div>porial</div>
-                <div onclick="removeitem(event)">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </li>
-         </ul>
-      </div>
-
+     <form name="feedback">
+        <div>
+            <input type="text" placeholder="Enter you full Name" name="fullname">
+        </div>
+        <div class="d-flex">
+           <div class="d-flex">
+              <input type="radio" name="type" id="General Feedback">
+              <label for="General Feedback">General Feedback</label>
+           </div>
+           <div class="d-flex">
+               <input type="radio" name="type" id="Technical-support">
+               <label for="Technical-support">Technical Support</label>
+           </div>
+           <div class="d-flex">
+              <input type="radio" name="type" id="Contributions">
+              <label for="Contributions">Contributions</label>
+           </div>
+        </div>
+         <div>
+           <input type="email" placeholder="yourEmail@gmail.com" name="email">
+        </div>
+        <div>
+            <textarea placeholder="Enter your feedback briefly" name="description"></textarea>                              
+        </div>
+        <div>      
+            <label for="terms" class="d-flex" name="terms">
+                <input type="checkbox" id="terms"> 
+                I accept the terms and conditions.
+            </label>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+     </form>
+   </main>
    <script src="index.js"> </script>
 </body>
 </html>

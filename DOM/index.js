@@ -1,90 +1,50 @@
+
+
+/**
+ * document
+ * forms
+ *   using inded[0]
+ *   names
+ * elements
+ *    using inded[0]
+ *    names
+ * destruture
+ *   >this is good way to code easy
+ */
+
+//document
+//forms
+//name
+//name=feedback
+
+//const formEl =document.forms[0]; //ny index
+//const formEl =document.forms.feedback; //my name
+
+//formEl.elements
+//const fullNameEL=formEl.elements[0] //by index value
+//const fullNameEL=formEl.elements.fullname; //by name
+
 /*
-button
-*/
-const btn =document.getElementById('input-btn');
-const userInput =document.getElementById('user-input');
+const formEl =document.forms.feedback;
+// const fullNameEL =formEl.elements.fullname
+// const typeEL =formEl.elements.type
+// const emailEL =formEl.elements.email
+// const descriptionEL =formEl.elements.description
+// const termsEL=formEl.elements.terms
 
-let foodContaiener =document.getElementById('food-container');
-// console.log(foodContaiener);
+// console.log(fullNameEL,typeEL,emailEL,descriptionEL,termsEL);
 
-const handleInuptFood =()=>{
-   const li =document.createElement('li');
-   li.className="list-items";
-   
-   const div =document.createElement('div');
-
-   if(userInput.value.length<1){
-       return 
-   }
-   else{
-    div.textContent=userInput.value;
-    const div1 =document.createElement('div');
-    div1.innerHTML=`<i class="fa-solid fa-xmark"></i>`;
-    div1.setAttribute('onclick','removeitem(event)')
-   
-    li.append(div,div1);
-    foodContaiener.append(li);
-   }
-}
-
-btn.addEventListener('click',handleInuptFood);
-
-userInput.addEventListener('keyup',(event)=>{
-   if(event.key === "Enter"){
-      handleInuptFood();
-   }else if(event.key === "KeyZ" && (event.ctrlkey="true"||event.metakey))
-   {
-       userInput.value='';
-   }
-});
-
-                                                                        
-//remove() meathod
-function removeitem(event){
-  const removeLi =event.target.parentNode.parentNode;
-  removeLi.remove();  
-}
-
-
-
-//keydown
-// document.addEventListener("keydown",(event)=>{
-//   console.log(event.type,event);
-// })
-
-// document.addEventListener("keyup",(event)=>{
-//   //console.log(`${event.type},${event.code},${event.key}`);
-//   console.log(event);
-// });
-
-
-// Task :Build a simple typing-test screen
-/*
-document.addEventListener("keyup",(event)=>{
-   switch(event.key){
-     default:
-      console.log(event.key);
-      break;
-   }
-
-   switch(event.key){
-      case 'ArrowUp':
-         alert(`You have pressed ${event.key}`);
-         break;
-      case 'ArrowDown':
-         alert(`You have pressed ${event.key}`);
-         break;
-      case 'ArrowLeft':
-         alert(`You have pressed ${event.key}`);
-         break;
-      case 'ArrowRight':
-         alert(`You have pressed ${event.key}`);
-         break;
-      default:
-         alert('You have pressed unwanted key')
-   }
-});
+const fullNameEL = formEl.fullname;
+console.log(fullNameEL); //by do this way
 */
 
+//modern the object destruting object es6
 
-
+const formEl =document.forms[0].elements;
+//object destruturing
+const { fullname,type,email,description,terms }=formEl
+console.log(fullname);
+console.log(type);
+console.log(email);
+console.log(description);
+console.log(terms);
