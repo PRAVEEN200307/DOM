@@ -1,50 +1,44 @@
+//forms data
 
-
-/**
- * document
- * forms
- *   using inded[0]
- *   names
- * elements
- *    using inded[0]
- *    names
- * destruture
- *   >this is good way to code easy
- */
-
-//document
-//forms
-//name
-//name=feedback
-
-//const formEl =document.forms[0]; //ny index
-//const formEl =document.forms.feedback; //my name
-
-//formEl.elements
-//const fullNameEL=formEl.elements[0] //by index value
-//const fullNameEL=formEl.elements.fullname; //by name
-
+const formEL =document.forms.feedback;
 /*
-const formEl =document.forms.feedback;
-// const fullNameEL =formEl.elements.fullname
-// const typeEL =formEl.elements.type
-// const emailEL =formEl.elements.email
-// const descriptionEL =formEl.elements.description
-// const termsEL=formEl.elements.terms
-
-// console.log(fullNameEL,typeEL,emailEL,descriptionEL,termsEL);
-
-const fullNameEL = formEl.fullname;
-console.log(fullNameEL); //by do this way
 */
+// console.log(formEL);
 
-//modern the object destruting object es6
+const handleSummit = (event)=>{
+    event.preventDefault();
+  
+    //destruture array
+        //  const {fullname,type,email,description,terms} =formEL.elements;
+        // console.log(fullname,type,email,description,terms);
+  
+  
+    //backend API
+      // console.log(new FormData(formEL));
+    //   console.log([...new FormData(formEL)]);
+    const formData = new FormData(formEL);
+    console.log("My api keys is"+formData.get('api-key'));
+  
+    console.log("form submited")
+} 
+const handleFormData=(e)=>{
+  console.log("Formdata fired");
+   const formdata =e.formData;
 
-const formEl =document.forms[0].elements;
-//object destruturing
-const { fullname,type,email,description,terms }=formEl
-console.log(fullname);
-console.log(type);
-console.log(email);
-console.log(description);
-console.log(terms);
+   //userfull meathods
+   formdata.append("api-key","A3434SEDFSF23D");
+   console.log([...formdata.entries()]);
+   console.log([...formdata.values()]);
+   console.log([...formdata.keys()]);
+   console.log(formdata.get("email"));
+   console.log(formdata.getAll("type"));//get more then value in array
+   console.log(formdata.has("type"));//return true or false
+   formdata.set("hobbies","Leaning new things");
+   formdata.delete("type")
+   console.log([...formdata.entries()])
+   console.log(formdata);
+}
+
+formEL.addEventListener("submit",handleSummit);
+formEL.addEventListener('formdata',handleFormData);
+
