@@ -4,7 +4,7 @@ const formEL =document.forms.feedback;
 /*
 */
 // console.log(formEL);
-
+/*
 const handleSummit = (event)=>{
     event.preventDefault();
   
@@ -41,4 +41,24 @@ const handleFormData=(e)=>{
 
 formEL.addEventListener("submit",handleSummit);
 formEL.addEventListener('formdata',handleFormData);
+
+*/
+const handleSubmit =(event)=>{
+  event.preventDefault();
+  console.log("submited")
+
+  const formdata =new FormData(formEL);
+  // console.log(formdata);
+}
+
+const handleFormEvent =(event)=>{
+    const formData =event.formData;
+    [...formData.entries()].forEach((values)=>{
+        console.log(values[0],':', values[1]);                            
+    });
+};
+
+formEL.addEventListener("submit",handleSubmit);
+
+formEL.addEventListener("formdata",handleFormEvent)
 
