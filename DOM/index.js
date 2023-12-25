@@ -1,64 +1,29 @@
-//forms data
+//formating
 
-const formEL =document.forms.feedback;
-/*
-*/
-// console.log(formEL);
-/*
-const handleSummit = (event)=>{
-    event.preventDefault();
-  
-    //destruture array
-        //  const {fullname,type,email,description,terms} =formEL.elements;
-        // console.log(fullname,type,email,description,terms);
-  
-  
-    //backend API
-      // console.log(new FormData(formEL));
-    //   console.log([...new FormData(formEL)]);
-    const formData = new FormData(formEL);
-    console.log("My api keys is"+formData.get('api-key'));
-  
-    console.log("form submited")
-} 
-const handleFormData=(e)=>{
-  console.log("Formdata fired");
-   const formdata =e.formData;
+const formEl =document.forms.feedback;
 
-   //userfull meathods
-   formdata.append("api-key","A3434SEDFSF23D");
-   console.log([...formdata.entries()]);
-   console.log([...formdata.values()]);
-   console.log([...formdata.keys()]);
-   console.log(formdata.get("email"));
-   console.log(formdata.getAll("type"));//get more then value in array
-   console.log(formdata.has("type"));//return true or false
-   formdata.set("hobbies","Leaning new things");
-   formdata.delete("type")
-   console.log([...formdata.entries()])
-   console.log(formdata);
-}
-
-formEL.addEventListener("submit",handleSummit);
-formEL.addEventListener('formdata',handleFormData);
-
-*/
 const handleSubmit =(event)=>{
   event.preventDefault();
-  console.log("submited")
+   //query string:contet-type : application/x-www-form-urlencoded
+  // http://127.0.0.1:5500/Feedback.html?fullname=Rachel+Sweeney&type=Contributions&email=made%40mailinator.com&description=Est+natus+incidunt+&terms=on
 
-  const formdata =new FormData(formEL);
-  // console.log(formdata);
+  const formdata=new FormData(formEl);
+  const data =[...formdata.entries()];
+/*
+   const dataString=data
+// .map((x)=>`${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`)
+   .map(([key,value])=>`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+   .join('&');  //old way of doing
+   console.log(dataString);
+*/
+  //interface
+    const dataString2= new URLSearchParams(formdata);
+    console.log(dataString2.toString());
+
+  //JSON 
+    // const jsonData = JSON.stringify(Object.fromEntries(formdata));                                                                                                       
+    // console.log(jsonData);
+    
 }
-
-const handleFormEvent =(event)=>{
-    const formData =event.formData;
-    [...formData.entries()].forEach((values)=>{
-        console.log(values[0],':', values[1]);                            
-    });
-};
-
-formEL.addEventListener("submit",handleSubmit);
-
-formEL.addEventListener("formdata",handleFormEvent)
+formEl.addEventListener("submit",handleSubmit)
 
