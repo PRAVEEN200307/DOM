@@ -1,29 +1,81 @@
 //formating
+//const formEl =document.forms.feedback;
 
-const formEl =document.forms.feedback;
 
-const handleSubmit =(event)=>{
+/*
+const handleSubmit=(event)=>{
   event.preventDefault();
-   //query string:contet-type : application/x-www-form-urlencoded
-  // http://127.0.0.1:5500/Feedback.html?fullname=Rachel+Sweeney&type=Contributions&email=made%40mailinator.com&description=Est+natus+incidunt+&terms=on
 
   const formdata=new FormData(formEl);
-  const data =[...formdata.entries()];
-/*
-   const dataString=data
-// .map((x)=>`${encodeURIComponent(x[0])}=${encodeURIComponent(x[1])}`)
-   .map(([key,value])=>`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-   .join('&');  //old way of doing
-   console.log(dataString);
-*/
-  //interface
-    const dataString2= new URLSearchParams(formdata);
-    console.log(dataString2.toString());
+  const data =[...formdata.entries()]
+ 
+ 
+  const JsonData =JSON.stringify(Object.fromEntries(formdata));
 
-  //JSON 
-    // const jsonData = JSON.stringify(Object.fromEntries(formdata));                                                                                                       
-    // console.log(jsonData);
-    
+   //send to Backend
+    //XMLHttpRequest(XHR)
+        // let xhr = new XMLHttpRequest();
+        // xhr.open("GET","https://reqres.in/api/users/2",true);
+        // xhr.onload = function(){
+        
+        //   const obj= JSON.parse(xhr.responseText);
+
+        //   document.querySelector('#response').innerText=obj.data.first_name;
+        // }
+        // xhr.send();
+
+    //2.fetch()
+      //async
+    fetch("https://reqres.in/api/users?page=2",{
+       method:"GET",
+        // headers:{
+        //   "Content-Type":"application/json", //MIME- multi purpose internet mail extension
+        //   // "Content-Type":"application/x-www-form-urlencoded",  //when form queryselector
+        // },
+        // body :JsonData, //get a  object
+        // // body: new FormData(formEl),  //get the object string formate
+    })
+    .then(res => res.json())
+    .then( data =>{
+      document.querySelector('#response').innerText=JSON.stringify(data.data);
+    }) 
+
 }
-formEl.addEventListener("submit",handleSubmit)
+*/
+const formEl=document.forms.feedback
 
+const handleSubmit =(event)=>{
+   event.preventDefault();
+
+    const formdata=new FormData(formEl);
+    const formdataOb =JSON.stringify(Object.fromEntries(formdata));
+  //XMLHttpRequest
+  const xhr =new XMLHttpRequest();
+  xhr.open("GET","https://reqres.in/api/users/2",true);
+  xhr.onload=function(){
+      const obj =JSON.parse(xhr.responseText);
+      document.querySelector('#response').innerText = obj.data.first_name
+  }
+  xhr.send();//old way
+
+
+
+ //fetch, axis
+  //post meathod have body
+    fetch('https://reqres.in/api/users/2',{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:formdataOb
+    });
+ 
+    //GET MEATHOD
+    fetch('https://reqres.in/api/users?page=2',{
+      method:"GET",
+    })
+    .then(res => res.json())
+    .then(data => document.querySelector("#response").innerText=JSON.stringify(data.data));
+
+}
+formEl.addEventListener("submit",handleSubmit);
