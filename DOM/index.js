@@ -3,58 +3,67 @@
 const formsEl =document.forms.feedback;
 let nameEL=formsEl.elements.fullname;
 
-/*
-  //!.Atributes
-  nameEL.value="praveen";
-  //nameEL.disabled='true';
-  nameEL.readOnly='true';
-  console.dir(nameEL.min);
 
-  //Events
-  //foucs
-    nameEL.addEventListener('focus',()=>console.log('focused'));
-  //blur
-    nameEL.addEventListener('blur',()=>console.log("blur"));
-  //input
-    nameEL.addEventListener('input',(event)=>console.log(`${event.target.value}`));
-  //change
-   nameEL.addEventListener('change',(e)=>console.log(`changed value ${e.target.value}`));
+const categoryEl=formsEl.elements.type;
 
-  //meathods
-    nameEL.focus();
+const allCategories =[...categoryEl]
 
-  //other events
-    nameEL.addEventListener('cut',()=>{
-      console.log('cuted')
-    });
-    nameEL.addEventListener('copy',()=>{
-       alert("this text can'ot copy ")
-    })
-    nameEL.addEventListener("paste", (event) => {
-      console.log("paste")
-    });
- 
+const catagoresParnetEL =document.querySelector("#categoryes");
 
-handleSubmit =(event)=>{
-  event.preventDefault();
- 
-  
-  const formdata =new FormData(formsEl);
- 
-};
+// console.log(catagoryes);
+// console.log(allCategories);
 
-formsEl.addEventListener("submit",handleSubmit);
-//1:58
+//attribute
+  // allCategories.forEach(cateogory =>{
+  //   console.log(cateogory.value);
+  //   console.log(cateogory.checked);
+  // })
 
+//event
+//  const handleChange=(event)=>{
+   
+//       // const checked=allCategories.find(category =>{
+//       //   return category.checked;
+//       // })
+//       // console.log("selected :",checked.value);
+    
+//     console.log(event.target.value);
+//  }
+//  catagoryes.addEventListener("change",handleChange);
+
+//meathod
+//for server process radio check
+// allCategories[1].select();
+// allCategories[1].checked=true;
+
+//Task
+/**
+ * if contribution radio button clicked,then show an alert message
+ * of "Thank you for contributing "after 1
  */
 
-//tast: crete a One-way binding,when the name field changes,
-//it should greate like hello (EnteredInput) in real time
+//change
+//alert
+// setTimeout(() => {
+  
+// }, timeout);
 
-const nameInput =document.querySelector('#nameInput');
+const handleChange =(event)=>{
 
-const handleChange = (event)=>{
-  const fullNameValue =event.target.value;
-  nameInput.innerText =`hello ${fullNameValue} `;
+  // const checked =allCategories.find( (ce)=>{
+  //      return ce.checked            
+  // });
+  
+  // if(checked.value === 'Contributions'){
+  //      setTimeout(()=>{
+  //         alert("Thank for contributing");
+  //       },1000)
+  // }
+
+    if(event.target.value === 'Contributions'){
+              setTimeout(()=>{
+                 alert("Thank for contributing");
+               },1000)
+    }
 }
-nameEL.addEventListener("input",handleChange);
+catagoresParnetEL.addEventListener('change',handleChange);
