@@ -1,69 +1,32 @@
+
 //forms input handle
 
 const formsEl =document.forms.feedback;
-let nameEL=formsEl.elements.fullname;
+const hobbiesEl =formsEl.elements.hobbies;
 
 
-const categoryEl=formsEl.elements.type;
-
-const allCategories =[...categoryEl]
-
-const catagoresParnetEL =document.querySelector("#categoryes");
-
-// console.log(catagoryes);
-// console.log(allCategories);
+const terms =formsEl.elements.terms
+/*
+//Get properties & Methods
+  //console.log(hobbiesEl[0].value)
 
 //attribute
-  // allCategories.forEach(cateogory =>{
-  //   console.log(cateogory.value);
-  //   console.log(cateogory.checked);
-  // })
-
+  //hobbiesEl[0].checked =true;
+  //terms.checked=true;
+  // terms.indeterminate=true;
+  console.log(terms.value);
 //event
-//  const handleChange=(event)=>{
-   
-//       // const checked=allCategories.find(category =>{
-//       //   return category.checked;
-//       // })
-//       // console.log("selected :",checked.value);
-    
-//     console.log(event.target.value);
-//  }
-//  catagoryes.addEventListener("change",handleChange);
-
+  terms.addEventListener('change',(event)=>{
+      console.log(event.target.checked);
+  })
 //meathod
-//for server process radio check
-// allCategories[1].select();
-// allCategories[1].checked=true;
+terms.select();
+terms.checked = true;
+*/
 
 //Task
-/**
- * if contribution radio button clicked,then show an alert message
- * of "Thank you for contributing "after 1
- */
-
-//change
-//alert
-// setTimeout(() => {
-  
-// }, timeout);
-
-const handleChange =(event)=>{
-
-  // const checked =allCategories.find( (ce)=>{
-  //      return ce.checked            
-  // });
-  
-  // if(checked.value === 'Contributions'){
-  //      setTimeout(()=>{
-  //         alert("Thank for contributing");
-  //       },1000)
-  // }
-
-    if(event.target.value === 'Contributions'){
-              setTimeout(()=>{
-                 alert("Thank for contributing");
-               },1000)
+terms.addEventListener('change',(event)=>{
+    if(event.target.checked === true){
+      alert("I accept terms and conditions")
     }
-}
-catagoresParnetEL.addEventListener('change',handleChange);
+});
