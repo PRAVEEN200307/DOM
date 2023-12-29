@@ -3,9 +3,6 @@
 const formsEl =document.forms.feedback;
 let nameEL=formsEl.elements.fullname;
 
-
-console.log(nameEL);
-
 /*
   //!.Atributes
   nameEL.value="praveen";
@@ -22,7 +19,6 @@ console.log(nameEL);
     nameEL.addEventListener('input',(event)=>console.log(`${event.target.value}`));
   //change
    nameEL.addEventListener('change',(e)=>console.log(`changed value ${e.target.value}`));
- */
 
   //meathods
     nameEL.focus();
@@ -49,3 +45,16 @@ handleSubmit =(event)=>{
 
 formsEl.addEventListener("submit",handleSubmit);
 //1:58
+
+ */
+
+//tast: crete a One-way binding,when the name field changes,
+//it should greate like hello (EnteredInput) in real time
+
+const nameInput =document.querySelector('#nameInput');
+
+const handleChange = (event)=>{
+  const fullNameValue =event.target.value;
+  nameInput.innerText =`hello ${fullNameValue} `;
+}
+nameEL.addEventListener("input",handleChange);
