@@ -94,12 +94,12 @@
         buttton
      -->
      <style>
-        form{
+        form,select{
            margin-top: 10px;
            background-color: #fff; 
            padding:15px;
            border-radius: 5px;
-           box-shadow:2px 2px 6px hwb(0 60% 40%);
+           box-shadow:0.5px 0.5px 6px hwb(0 78% 21%);
            font-size:12px;
            /* font-weight: bold; */
            color: hwb(0 51% 48%);
@@ -122,6 +122,17 @@
         .d-flex{
            display: flex;
            align-items: center;
+          
+        }
+        .display-flex{
+            display: flex;
+            justify-content: space-between;
+        }
+        select{
+            width:250px;
+            padding:5px 20px;
+            margin-right:20px;
+            outline: none;
         }
      </style>
 
@@ -143,7 +154,7 @@
               <label for="Contributions">Contributions</label>
            </div>
         </div>
-        <div class="d-flex" >
+        <!-- <div class="d-flex" >
             <div>
                 <label for="hearing-songs">
                     <input type="checkbox" name="hobbies" id="hearing-songs" value="hearing-songs">
@@ -162,9 +173,21 @@
                     watching motivation speech
                 </label>
             </div>
-        </div>
-         <div>
-           <input type="email" placeholder="yourEmail@gmail.com" name="email" required>
+        </div> -->
+         <div class="display-flex">
+            <div>
+                <input style="width:200px;"  type="email" placeholder="yourEmail@gmail.com" name="email" required>
+            </div>
+            <div>
+                <select name="country" id="country" >
+                    <option value="">---Select Country---</option>
+                    <option value="IND">India</option>
+                    <option value="SK">Sri Lanka</option>
+                    <option value="MYS">Malasia</option>
+                    <option value="SGP">Singapore</option>
+                    <option value="THA">Tailand</option>
+                </select>
+            </div>
         </div>
         <div>
             <textarea placeholder="Enter your feedback briefly" name="description" required></textarea>                              
